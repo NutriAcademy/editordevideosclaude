@@ -1,0 +1,228 @@
+{
+  "versao": 1,
+  "licenca": "CC0 1.0 (domínio público) — uso comercial liberado, sem necessidade de crédito, redistribuição permitida",
+  "licenca_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "fonte": "FreePD.com (acervo preservado no Internet Archive)",
+  "musicas": [
+    {
+      "id": "calma-01-lovely-piano-song",
+      "titulo": "Lovely Piano Song",
+      "autor": "Rafael Krux",
+      "clima": "calma",
+      "descricao": "Piano emotivo e delicado",
+      "arquivo": "calma-01-lovely-piano-song.mp3",
+      "duracao": 96,
+      "fonte_original": "https://freepd.com/music/Lovely Piano Song.mp3",
+      "arquivo_preservado": "https://web.archive.org/web/2023/https://freepd.com/music/Lovely Piano Song.mp3"
+    },
+    {
+      "id": "calma-02-pond",
+      "titulo": "Pond",
+      "autor": "Rafael Krux",
+      "clima": "calma",
+      "descricao": "Suave e leve, como água correndo",
+      "arquivo": "calma-02-pond.mp3",
+      "duracao": 152,
+      "fonte_original": "https://freepd.com/music/Pond.mp3",
+      "arquivo_preservado": "https://web.archive.org/web/2023/https://freepd.com/music/Pond.mp3"
+    },
+    {
+      "id": "calma-03-nostalgic-piano",
+      "titulo": "Nostalgic Piano",
+      "autor": "Rafael Krux",
+      "clima": "calma",
+      "descricao": "Piano nostálgico, clima de dia chuvoso",
+      "arquivo": "calma-03-nostalgic-piano.mp3",
+      "duracao": 196,
+      "fonte_original": "https://freepd.com/music/Nostalgic Piano.mp3",
+      "arquivo_preservado": "https://web.archive.org/web/2023/https://freepd.com/music/Nostalgic Piano.mp3"
+    },
+    {
+      "id": "calma-04-infinite-peace",
+      "titulo": "Infinite Peace",
+      "autor": "Kevin MacLeod",
+      "clima": "calma",
+      "descricao": "Marimbas tranquilas, bem serena",
+      "arquivo": "calma-04-infinite-peace.mp3",
+      "duracao": 75,
+      "fonte_original": "https://freepd.com/music/Infinite Peace.mp3",
+      "arquivo_preservado": "https://web.archive.org/web/2023/https://freepd.com/music/Infinite Peace.mp3"
+    },
+    {
+      "id": "calma-05-study-and-relax",
+      "titulo": "Study and Relax",
+      "autor": "Kevin MacLeod",
+      "clima": "calma",
+      "descricao": "Lo-fi relaxante, bom para conteúdo explicativo",
+      "arquivo": "calma-05-study-and-relax.mp3",
+      "duracao": 223,
+      "fonte_original": "https://freepd.com/music/Study and Relax.mp3",
+      "arquivo_preservado": "https://web.archive.org/web/2023/https://freepd.com/music/Study and Relax.mp3"
+    },
+    {
+      "id": "animada-01-happy-whistling-ukulele",
+      "titulo": "Happy Whistling Ukulele",
+      "autor": "Rafael Krux",
+      "clima": "animada",
+      "descricao": "Ukulele e assobio, alegre e positiva",
+      "arquivo": "animada-01-happy-whistling-ukulele.mp3",
+      "duracao": 123,
+      "fonte_original": "https://freepd.com/music/Happy Whistling Ukulele.mp3",
+      "arquivo_preservado": "https://web.archive.org/web/2023/https://freepd.com/music/Happy Whistling Ukulele.mp3"
+    },
+    {
+      "id": "animada-02-ukulele-song",
+      "titulo": "Ukulele Song",
+      "autor": "Rafael Krux",
+      "clima": "animada",
+      "descricao": "Ukulele animado com percussão leve",
+      "arquivo": "animada-02-ukulele-song.mp3",
+      "duracao": 139,
+      "fonte_original": "https://freepd.com/music/Ukulele Song.mp3",
+      "arquivo_preservado": "https://web.archive.org/web/2023/https://freepd.com/music/Ukulele Song.mp3"
+    },
+    {
+      "id": "animada-03-funshine",
+      "titulo": "Funshine",
+      "autor": "Kevin MacLeod",
+      "clima": "animada",
+      "descricao": "Ukulele com sintetizador, divertida",
+      "arquivo": "animada-03-funshine.mp3",
+      "duracao": 165,
+      "fonte_original": "https://freepd.com/music/Funshine.mp3",
+      "arquivo_preservado": "https://web.archive.org/web/2023/https://freepd.com/music/Funshine.mp3"
+    },
+    {
+      "id": "animada-04-groovin",
+      "titulo": "Groovin",
+      "autor": "Brian Boyko",
+      "clima": "animada",
+      "descricao": "Piano jazz com groove, cheia de energia",
+      "arquivo": "animada-04-groovin.mp3",
+      "duracao": 240,
+      "fonte_original": "https://freepd.com/music/Groovin.mp3",
+      "arquivo_preservado": "https://web.archive.org/web/2023/https://freepd.com/music/Groovin.mp3"
+    },
+    {
+      "id": "animada-05-gotta-keep-on-movin",
+      "titulo": "Gotta Keep On Movin",
+      "autor": "Bryan Teoh",
+      "clima": "animada",
+      "descricao": "Dançante e descontraída",
+      "arquivo": "animada-05-gotta-keep-on-movin.mp3",
+      "duracao": 144,
+      "fonte_original": "https://freepd.com/music/Gotta Keep On Movin.mp3",
+      "arquivo_preservado": "https://web.archive.org/web/2023/https://freepd.com/music/Gotta Keep On Movin.mp3"
+    },
+    {
+      "id": "inspiradora-01-inspiration",
+      "titulo": "Inspiration",
+      "autor": "Rafael Krux",
+      "clima": "inspiradora",
+      "descricao": "Positiva e motivadora, cara de propaganda",
+      "arquivo": "inspiradora-01-inspiration.mp3",
+      "duracao": 136,
+      "fonte_original": "https://freepd.com/music/Inspiration.mp3",
+      "arquivo_preservado": "https://web.archive.org/web/2023/https://freepd.com/music/Inspiration.mp3"
+    },
+    {
+      "id": "inspiradora-02-motions",
+      "titulo": "Motions",
+      "autor": "Rafael Krux",
+      "clima": "inspiradora",
+      "descricao": "Piano cinematográfico com cordas, emocionante",
+      "arquivo": "inspiradora-02-motions.mp3",
+      "duracao": 117,
+      "fonte_original": "https://freepd.com/music/Motions.mp3",
+      "arquivo_preservado": "https://web.archive.org/web/2023/https://freepd.com/music/Motions.mp3"
+    },
+    {
+      "id": "inspiradora-03-romantic-inspiration",
+      "titulo": "Romantic Inspiration",
+      "autor": "Rafael Krux",
+      "clima": "inspiradora",
+      "descricao": "Orquestra emotiva e envolvente",
+      "arquivo": "inspiradora-03-romantic-inspiration.mp3",
+      "duracao": 149,
+      "fonte_original": "https://freepd.com/music/Romantic Inspiration.mp3",
+      "arquivo_preservado": "https://web.archive.org/web/2023/https://freepd.com/music/Romantic Inspiration.mp3"
+    },
+    {
+      "id": "inspiradora-04-journey-of-hope",
+      "titulo": "Journey of Hope",
+      "autor": "Alexander Nakarada",
+      "clima": "inspiradora",
+      "descricao": "Balada inspiradora com violão",
+      "arquivo": "inspiradora-04-journey-of-hope.mp3",
+      "duracao": 347,
+      "fonte_original": "https://freepd.com/music/Journey of Hope.mp3",
+      "arquivo_preservado": "https://web.archive.org/web/2023/https://freepd.com/music/Journey of Hope.mp3"
+    },
+    {
+      "id": "inspiradora-05-infinite-wonder",
+      "titulo": "Infinite Wonder",
+      "autor": "Kevin MacLeod",
+      "clima": "inspiradora",
+      "descricao": "Sintetizadores épicos, sensação de conquista",
+      "arquivo": "inspiradora-05-infinite-wonder.mp3",
+      "duracao": 188,
+      "fonte_original": "https://freepd.com/music/Infinite Wonder.mp3",
+      "arquivo_preservado": "https://web.archive.org/web/2023/https://freepd.com/music/Infinite Wonder.mp3"
+    },
+    {
+      "id": "corporativa-01-advertime",
+      "titulo": "Advertime",
+      "autor": "Rafael Krux",
+      "clima": "corporativa",
+      "descricao": "Violão e piano leves, perfeita para anúncios",
+      "arquivo": "corporativa-01-advertime.mp3",
+      "duracao": 134,
+      "fonte_original": "https://freepd.com/music/Advertime.mp3",
+      "arquivo_preservado": "https://web.archive.org/web/2023/https://freepd.com/music/Advertime.mp3"
+    },
+    {
+      "id": "corporativa-02-inventing-flight",
+      "titulo": "Inventing Flight",
+      "autor": "Bryan Teoh",
+      "clima": "corporativa",
+      "descricao": "Grandiosa e otimista, ideal para lançamentos",
+      "arquivo": "corporativa-02-inventing-flight.mp3",
+      "duracao": 142,
+      "fonte_original": "https://freepd.com/music/Inventing Flight.mp3",
+      "arquivo_preservado": "https://web.archive.org/web/2023/https://freepd.com/music/Inventing Flight.mp3"
+    },
+    {
+      "id": "corporativa-03-city-sunshine",
+      "titulo": "City Sunshine",
+      "autor": "Kevin MacLeod",
+      "clima": "corporativa",
+      "descricao": "Corporativa com energia, baixo marcante",
+      "arquivo": "corporativa-03-city-sunshine.mp3",
+      "duracao": 185,
+      "fonte_original": "https://freepd.com/music/City Sunshine.mp3",
+      "arquivo_preservado": "https://web.archive.org/web/2023/https://freepd.com/music/City Sunshine.mp3"
+    },
+    {
+      "id": "corporativa-04-adding-the-sun",
+      "titulo": "Adding the Sun",
+      "autor": "Kevin MacLeod",
+      "clima": "corporativa",
+      "descricao": "Energizante e otimista",
+      "arquivo": "corporativa-04-adding-the-sun.mp3",
+      "duracao": 176,
+      "fonte_original": "https://freepd.com/music/Adding the Sun.mp3",
+      "arquivo_preservado": "https://web.archive.org/web/2023/https://freepd.com/music/Adding the Sun.mp3"
+    },
+    {
+      "id": "corporativa-05-from-page-to-practice",
+      "titulo": "From Page to Practice",
+      "autor": "Bryan Teoh",
+      "clima": "corporativa",
+      "descricao": "Sensação de recomeço e grande mudança",
+      "arquivo": "corporativa-05-from-page-to-practice.mp3",
+      "duracao": 136,
+      "fonte_original": "https://freepd.com/music/From Page to Practice.mp3",
+      "arquivo_preservado": "https://web.archive.org/web/2023/https://freepd.com/music/From Page to Practice.mp3"
+    }
+  ]
+}
