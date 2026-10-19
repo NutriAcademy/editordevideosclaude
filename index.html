@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Editor de Reels — Guia da Aluna | NutriAcademy</title>
+<meta name="description" content="Como instalar e usar o Editor de Reels da NutriAcademy na aba Code do Claude: do primeiro vídeo aos efeitos.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231b1b1b'/%3E%3Cpath d='M11 8l10 8-10 8' stroke='%23BDA958' stroke-width='4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,800;1,800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --preto: #1b1b1b;
+    --preto-2: #262626;
+    --branco: #ffffff;
+    --dourado: #bda958;
+    --dourado-escuro: #8f7d36;
+    --dourado-claro: #f6f1de;
+    --texto: #1b1b1b;
+    --texto-2: #555048;
+    --fundo: #fbfaf6;
+    --cartao: #ffffff;
+    --linha: #e7e2d2;
+    --codigo: #1b1b1b;
+    --codigo-texto: #f3efe2;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  body {
+    margin: 0; background: var(--fundo); color: var(--texto);
+    font: 400 17px/1.65 "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--dourado-escuro); text-underline-offset: 3px; }
+  a:hover { color: var(--preto); }
+
+  /* Barra superior */
+  .topo {
+    position: sticky; top: 0; z-index: 10; background: var(--preto);
+    border-bottom: 3px solid var(--dourado);
+  }
+  .topo-inner {
+    max-width: 1120px; margin: 0 auto; padding: 14px 16px;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .topo img { height: 30px; width: auto; display: block; }
+  .topo .baixar-mini {
+    color: var(--preto); background: var(--dourado); text-decoration: none; font-weight: 600;
+    padding: 8px 14px; border-radius: 999px; font-size: 14px; white-space: nowrap;
+  }
+  .topo .baixar-mini:hover { background: var(--branco); }
+
+  /* Capa */
+  .capa { background: var(--preto); color: var(--branco); }
+  .capa-inner { max-width: 1120px; margin: 0 auto; padding: 56px 16px 64px; }
+  .selo {
+    display: inline-block; font-size: 13px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--dourado); border: 1px solid var(--dourado); border-radius: 999px; padding: 4px 12px;
+  }
+  .capa h1 {
+    font-weight: 800; font-style: italic; text-transform: uppercase; letter-spacing: -.01em;
+    font-size: clamp(34px, 6vw, 60px); line-height: 1.05; margin: 18px 0 14px;
+  }
+  .capa h1 span { color: var(--dourado); font-style: normal; font-weight: 300; text-transform: none; }
+  .capa p { font-weight: 300; font-size: clamp(17px, 2.2vw, 20px); max-width: 680px; margin: 0 0 28px; color: #e9e6dc; }
+  .botoes { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600;
+    padding: 14px 22px; border-radius: 12px; font-size: 16px; border: 2px solid var(--dourado);
+  }
+  .btn-principal { background: var(--dourado); color: var(--preto); }
+  .btn-principal:hover { background: var(--branco); border-color: var(--branco); color: var(--preto); }
+  .btn-sec { color: var(--branco); }
+  .btn-sec:hover { color: var(--dourado); }
+  .btn svg { width: 20px; height: 20px; }
+  .nota-capa { font-size: 13px; color: #a8a396; margin-top: 14px; }
+
+  /* Layout */
+  .conteudo {
+    max-width: 1120px; margin: 0 auto; padding: 40px 16px 80px;
+    display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 48px;
+  }
+  .indice { position: sticky; top: 96px; align-self: start; font-size: 14px; }
+  .indice strong { display: block; font-size: 12px; letter-spacing: .1em; text-transform: uppercase; color: var(--texto-2); margin-bottom: 10px; }
+  .indice ol { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--linha); }
+  .indice a { display: block; padding: 6px 0 6px 14px; margin-left: -2px; color: var(--texto-2); text-decoration: none; border-left: 2px solid transparent; }
+  .indice a:hover, .indice a.ativo { color: var(--preto); border-left-color: var(--dourado); font-weight: 600; }
+
+  article { min-width: 0; }
+  section { margin-bottom: 56px; }
+  h2 {
+    font-size: clamp(24px, 3.4vw, 30px); line-height: 1.2; margin: 0 0 16px; font-weight: 800;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .num {
+    flex: none; width: 40px; height: 40px; border-radius: 50%; background: var(--preto); color: var(--dourado);
+    display: grid; place-items: center; font-size: 18px; font-style: italic;
+  }
+  h3 { font-size: 19px; margin: 32px 0 10px; font-weight: 600; }
+  p { margin: 0 0 14px; }
+  ol.passos, ul.lista { padding-left: 22px; margin: 0 0 16px; }
+  ol.passos li, ul.lista li { margin-bottom: 10px; padding-left: 4px; }
+  ol.passos li::marker { color: var(--dourado-escuro); font-weight: 800; }
+  ul.lista li::marker { color: var(--dourado); }
+  code { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: .88em; background: var(--dourado-claro); padding: 1px 6px; border-radius: 5px; }
+
+  .aviso {
+    background: var(--dourado-claro); border-left: 4px solid var(--dourado); border-radius: 10px;
+    padding: 16px 18px; margin: 0 0 24px;
+  }
+  .aviso p:last-child { margin-bottom: 0; }
+
+  .checklist { list-style: none; padding: 0; margin: 0 0 16px; display: grid; gap: 10px; }
+  .checklist li {
+    background: var(--cartao); border: 1px solid var(--linha); border-radius: 12px; padding: 14px 16px 14px 52px; position: relative;
+  }
+  .checklist li::before {
+    content: ""; position: absolute; left: 16px; top: 16px; width: 22px; height: 22px; border-radius: 6px;
+    border: 2px solid var(--dourado); background: var(--branco);
+  }
+  .checklist li.marcado::before { background: var(--dourado) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12l5 5 9-10' stroke='%231b1b1b' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat; }
+  .checklist li { cursor: pointer; user-select: none; }
+
+  .dica {
+    background: var(--preto); color: var(--branco); border-radius: 12px; padding: 16px 18px; margin: 16px 0;
+  }
+  .dica b { color: var(--dourado); }
+
+  /* Bloco para copiar */
+  .copiar {
+    position: relative; background: var(--codigo); color: var(--codigo-texto); border-radius: 12px;
+    padding: 18px 18px 18px 18px; margin: 12px 0 16px; font-size: 15.5px; line-height: 1.6;
+    border-left: 4px solid var(--dourado);
+  }
+  .copiar p { margin: 0; padding-right: 92px; white-space: pre-wrap; word-break: break-word; }
+  .copiar button {
+    position: absolute; top: 12px; right: 12px; font: 600 13px "Poppins", sans-serif; cursor: pointer;
+    background: var(--dourado); color: var(--preto); border: 0; border-radius: 8px; padding: 7px 12px;
+  }
+  .copiar button:hover { background: var(--branco); }
+  .copiar button.ok { background: #6fbf73; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 12px; padding: 0; list-style: none; }
+  .chips li { background: var(--cartao); border: 1px solid var(--linha); border-radius: 999px; padding: 4px 12px; font-size: 14px; }
+
+  .baixar-card {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px;
+    background: var(--cartao); border: 2px dashed var(--dourado); border-radius: 14px; padding: 18px; margin: 8px 0 20px;
+  }
+  .baixar-card .btn { border-color: var(--preto); background: var(--preto); color: var(--dourado); }
+  .baixar-card .btn:hover { background: var(--dourado); color: var(--preto); border-color: var(--dourado); }
+
+  /* FAQ */
+  details {
+    background: var(--cartao); border: 1px solid var(--linha); border-radius: 12px; margin-bottom: 10px;
+  }
+  summary {
+    cursor: pointer; list-style: none; padding: 16px 48px 16px 18px; font-weight: 600; position: relative;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+"; position: absolute; right: 18px; top: 50%; transform: translateY(-50%);
+    color: var(--dourado-escuro); font-size: 24px; font-weight: 300;
+  }
+  details[open] summary::after { content: "–"; }
+  details > div { padding: 0 18px 16px; color: var(--texto-2); }
+  details > div p:last-child { margin-bottom: 0; }
+
+  footer { background: var(--preto); color: #a8a396; font-size: 14px; }
+  footer .inner { max-width: 1120px; margin: 0 auto; padding: 32px 16px; display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; }
+  footer img { height: 24px; }
+  footer a { color: var(--dourado); }
+
+  @media (max-width: 860px) {
+    .conteudo { grid-template-columns: 1fr; gap: 24px; padding-top: 24px; }
+    .indice { position: static; background: var(--cartao); border: 1px solid var(--linha); border-radius: 12px; padding: 14px 16px; }
+    .indice ol { border-left: 0; columns: 2; column-gap: 16px; }
+    .indice a { padding-left: 0; border-left: 0; }
+    .topo img { height: 24px; }
+  }
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    .indice ol { columns: 1; }
+    .copiar p { padding-right: 0; padding-top: 34px; }
+    .topo .baixar-mini { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="topo-inner">
+    <a href="#inicio" aria-label="NutriAcademy — início"><img src="logo-nutriacademy.png" alt="NutriAcademy"></a>
+    <a class="baixar-mini" href="editor-reels-code.zip" download>Baixar a Skill</a>
+  </div>
+</header>
+
+<section class="capa" id="inicio">
+  <div class="capa-inner">
+    <span class="selo">Guia da Aluna</span>
+    <h1>Editor de Reels <span>com o Claude</span></h1>
+    <p>Você manda um vídeo para o Claude e recebe de volta um Reel pronto: sem pausas, em 9:16, com legenda animada, música e efeitos. Instala uma vez e, depois, é só conversar.</p>
+    <div class="botoes">
+      <a class="btn btn-principal" href="editor-reels-code.zip" download>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 21h16"/></svg>
+        Baixar a Skill (.zip)
+      </a>
+      <a class="btn btn-sec" href="#antes">Ver o passo a passo</a>
+    </div>
+    <p class="nota-capa">Arquivo editor-reels-code.zip · cerca de 110 KB</p>
+  </div>
+</section>
+
+<div class="conteudo">
+  <nav class="indice" aria-label="Índice">
+    <strong>Neste guia</strong>
+    <ol>
+      <li><a href="#antes">Antes de começar</a></li>
+      <li><a href="#passo1">1. Abrir a aba Code</a></li>
+      <li><a href="#passo2">2. Instalar a Skill</a></li>
+      <li><a href="#passo3">3. A primeira edição</a></li>
+      <li><a href="#pedidos">Pedidos prontos</a></li>
+      <li><a href="#gravar">Dicas para gravar</a></li>
+      <li><a href="#faq">Perguntas frequentes</a></li>
+    </ol>
+  </nav>
+
+  <article>
+    <div class="aviso">
+      <p><b>Aviso:</b> este guia foi testado num Mac. Ele ainda <b>não foi testado num computador Windows</b>. Se você usa Windows e algo não sair como descrito, avise a equipe NutriAcademy com um print da tela.</p>
+    </div>
+
+    <section id="antes">
+      <h2>Antes de começar</h2>
+      <p>Você precisa de quatro coisas. Toque em cada item para marcar.</p>
+      <ul class="checklist">
+        <li><b>Plano pago do Claude</b> (Pro ou superior), o mesmo que você já usa para páginas de vendas.</li>
+        <li><b>App do Claude instalado no computador</b> (Mac ou Windows). O editor não funciona no celular nem no site claude.ai.</li>
+        <li><b>O arquivo <code>editor-reels-code.zip</code></b>, baixado pelo botão desta página. Deixe-o na pasta Downloads.</li>
+        <li><b>Internet e uns 2 GB livres</b> no computador, para a instalação da primeira vez.</li>
+      </ul>
+      <div class="dica"><b>Dica:</b> crie uma pasta chamada <b>Reels</b> na sua Área de Trabalho e guarde nela os vídeos que quer editar. Os vídeos prontos vão aparecer na mesma pasta.</div>
+    </section>
+
+    <section id="passo1">
+      <h2><span class="num">1</span>Abrir a aba Code</h2>
+      <p>A aba Code é a parte do app em que o Claude trabalha direto no seu computador. É por isso que ele consegue editar vídeos lá.</p>
+      <ol class="passos">
+        <li>Abra o <b>app do Claude</b> no computador (o ícone laranja, não o site).</li>
+        <li>No alto do app, troque de <b>Chat</b> para <b>Code</b>.</li>
+        <li>Comece uma nova conversa. Se o app pedir uma pasta, escolha a pasta <b>Reels</b> que você criou na Área de Trabalho.</li>
+      </ol>
+      <p>Na aba Code, o Claude pede sua autorização antes de fazer algo no computador. Quando aparecer um botão como <b>Permitir</b> para os passos deste guia, pode aceitar.</p>
+    </section>
+
+    <section id="passo2">
+      <h2><span class="num">2</span>Instalar a Skill (só uma vez)</h2>
+      <p>Você não precisa abrir pastas escondidas: o próprio Claude instala a Skill.</p>
+      <div class="baixar-card">
+        <span>Ainda não baixou? Baixe o arquivo da Skill:</span>
+        <a class="btn" href="editor-reels-code.zip" download>Baixar editor-reels-code.zip</a>
+      </div>
+      <ol class="passos">
+        <li>Arraste o arquivo <b><code>editor-reels-code.zip</code></b> da pasta Downloads para dentro da conversa na aba Code.</li>
+        <li>Copie e cole esta mensagem, e envie:
+          <div class="copiar"><p>Instale esta skill como skill pessoal do Claude Code. Descompacte o editor-reels-code.zip e coloque o conteúdo da pasta editor-reels-code em ~/.claude/skills/editor-reels (no Windows: %USERPROFILE%\.claude\skills\editor-reels), de forma que o arquivo SKILL.md fique direto dentro de editor-reels. Depois confirme que a skill editor-reels está disponível.</p><button type="button">Copiar</button></div>
+        </li>
+        <li>Aceite os pedidos de permissão. Em menos de um minuto o Claude avisa que a Skill está instalada.</li>
+        <li>Abra <b>uma conversa nova</b> na aba Code. É nela que você vai editar.</li>
+      </ol>
+      <p>Se o Claude disser que não encontra a Skill na conversa nova, feche e abra o app do Claude e tente de novo. O Claude Code guarda as skills pessoais nesse endereço, segundo a <a href="https://code.claude.com/docs/en/skills" target="_blank" rel="noopener">documentação oficial</a>.</p>
+    </section>
+
+    <section id="passo3">
+      <h2><span class="num">3</span>A primeira edição (cerca de 10 minutos)</h2>
+      <p>Na primeira vez, o Claude prepara o editor no seu computador antes de editar. Isso leva uns 10 minutos e só acontece uma vez.</p>
+      <ol class="passos">
+        <li>Na conversa nova, arraste um vídeo curto (de 30 s a 1 min) e escreva: <b>"Edita esse vídeo para o Reels."</b></li>
+        <li>O Claude avisa que vai preparar o editor. Aceite as permissões. Ele instala o programa de vídeo e o de transcrição da fala (cerca de 1 GB de download).</li>
+        <li>Se o computador pedir algo antes:
+          <ul class="lista">
+            <li><b>Mac:</b> pode abrir uma janela pedindo para instalar "ferramentas de linha de comando". Clique em <b>Instalar</b> e espere terminar.</li>
+            <li><b>Windows:</b> o Claude pode precisar instalar o Python. Aceite a instalação quando o Windows perguntar.</li>
+          </ul>
+        </li>
+        <li>Depois da instalação, o Claude edita o vídeo, confere uma imagem de prévia e abre o resultado para você assistir.</li>
+      </ol>
+      <p>O vídeo pronto fica na mesma pasta do original, com <code>_reel</code> no fim do nome. Por exemplo: <code>meu-video_reel.mp4</code>.</p>
+      <p>Das próximas vezes, o Claude vai direto para a edição.</p>
+    </section>
+
+    <section id="pedidos">
+      <h2>Pedidos prontos para copiar</h2>
+      <p>Arraste o vídeo para a conversa e cole um dos pedidos abaixo. Troque o que estiver entre colchetes. Pode misturar pedidos numa mensagem só.</p>
+
+      <h3>Pacote básico (comece por aqui)</h3>
+      <div class="copiar"><p>Edita esse vídeo para o Reels: corta as pausas, coloca legenda automática, música de fundo calma e zoom de ênfase.</p><button type="button">Copiar</button></div>
+
+      <h3>Música por clima</h3>
+      <ul class="chips"><li>calma</li><li>animada</li><li>inspiradora</li><li>corporativa</li></ul>
+      <div class="copiar"><p>Coloca uma música de fundo animada nesse vídeo.</p><button type="button">Copiar</button></div>
+      <div class="copiar"><p>Gostei, mas troca a música por outra do mesmo clima.</p><button type="button">Copiar</button></div>
+
+      <h3>Título, apresentação e chamada final</h3>
+      <div class="copiar"><p>Coloca o título "[3 erros que fazem seu paciente desistir]" no começo, meu nome "[Dra. Ana Souza]" com "[Nutricionista · @ana.nutri]" embaixo, a chamada "[Comente EU QUERO]" no final e uma barra de progresso.</p><button type="button">Copiar</button></div>
+
+      <h3>Juntar vários clipes com transição</h3>
+      <div class="copiar"><p>Junta esses 3 vídeos nessa ordem, com transição de dissolver entre eles.</p><button type="button">Copiar</button></div>
+      <p>Outras transições:</p>
+      <ul class="chips"><li>fade para o preto</li><li>fade para o branco</li><li>varredura (wipe)</li><li>deslizar</li><li>zoom</li><li>glitch</li></ul>
+
+      <h3>Corrigir e estilizar a cor</h3>
+      <div class="copiar"><p>O vídeo ficou amarelado e escuro. Corrige a cor e deixa mais vivo.</p><button type="button">Copiar</button></div>
+      <p>Outros estilos:</p>
+      <ul class="chips"><li>natural</li><li>quente</li><li>frio</li><li>cinema</li><li>nostalgia</li><li>preto e branco</li><li>sépia</li></ul>
+
+      <h3>Corrigir palavra errada na legenda</h3>
+      <div class="copiar"><p>Na legenda saiu "[regante peso]", o certo é "[reganho de peso]". Corrige e gera de novo.</p><button type="button">Copiar</button></div>
+      <div class="copiar"><p>Sempre que aparecer "[nutri academy]", escreve "[NutriAcademy]". Guarda isso para os próximos vídeos.</p><button type="button">Copiar</button></div>
+
+      <h3>Mais pedidos que funcionam</h3>
+      <ul class="lista">
+        <li>"Coloca meu logo no canto" (arraste o PNG do logo junto).</li>
+        <li>"Tira o chiado do áudio e deixa minha voz mais clara."</li>
+        <li>"Deixa em câmera lenta o trecho em que eu falo [tal frase]."</li>
+        <li>"Borra o documento que aparece no começo."</li>
+        <li>"Troca o fundo verde por esta imagem" (arraste a imagem junto).</li>
+        <li>"Quais efeitos você consegue colocar?"</li>
+      </ul>
+    </section>
+
+    <section id="gravar">
+      <h2>Dicas para gravar vídeos que editam melhor</h2>
+      <ul class="lista">
+        <li><b>Grave na vertical</b> e <b>sem legenda</b> no app da câmera ou do Instagram. Se o vídeo já tiver legenda gravada, o editor não coloca outra por cima.</li>
+        <li><b>Fale perto do celular e num lugar silencioso.</b> A legenda automática acerta mais, e o corte de pausas fica mais preciso.</li>
+        <li><b>Pode errar e repetir a frase.</b> Faça uma pausa, repita e depois peça: "tira o trecho em que eu repito [tal frase]".</li>
+        <li><b>Use luz de frente</b> (uma janela na sua frente, não atrás). A correção de cor ajuda, mas não faz milagre.</li>
+        <li><b>Vídeos de até 90 segundos</b> editam mais rápido. Para vídeos longos, grave em partes e peça para juntar.</li>
+      </ul>
+    </section>
+
+    <section id="faq">
+      <h2>Perguntas frequentes e limites</h2>
+      <details><summary>Dá para desfocar o fundo atrás de mim, como no modo retrato?</summary><div><p>Não. Para isso o editor precisaria recortar você da imagem com inteligência artificial, e ele não faz isso. Como alternativa, peça uma vinheta (bordas escurecidas), um estilo de cor, ou grave com fundo verde e peça para trocar o fundo.</p></div></details>
+      <details><summary>Posso colocar uma música famosa ou que está em alta?</summary><div><p>Não dentro do vídeo. Música famosa no arquivo pode fazer o Instagram silenciar ou bloquear o Reel. Para isso, adicione a música pelo próprio Instagram na hora de postar. As músicas da biblioteca NutriAcademy são de domínio público (licença CC0) e podem ser usadas à vontade, inclusive em anúncios.</p></div></details>
+      <details><summary>Quanto tempo demora para o vídeo ficar pronto?</summary><div><p>Depende do computador e dos efeitos. No Mac de teste, um Reel de 1 minuto com legenda e música levou de 3 a 5 minutos. Juntar clipes e estabilizar vídeo tremido deixam a edição mais lenta. Computadores mais novos são mais rápidos. Ajustes no mesmo vídeo saem mais rápido, porque a transcrição fica salva.</p></div></details>
+      <details><summary>Funciona no celular ou no site do Claude?</summary><div><p>Não. Só no app do Claude no computador, na aba Code.</p></div></details>
+      <details><summary>A legenda errou uma palavra. E agora?</summary><div><p>Peça a correção (veja <a href="#pedidos">Corrigir palavra errada na legenda</a>). Nomes de marca e termos técnicos são os que mais erram. Peça para o Claude guardar a correção e ela vale para todos os próximos vídeos.</p></div></details>
+      <details><summary>O meu vídeo original é alterado?</summary><div><p>Não. O editor sempre cria um arquivo novo, com <code>_reel</code> no nome.</p></div></details>
+      <details><summary>O fundo verde não sumiu direito.</summary><div><p>A troca de fundo só funciona bem com fundo verde (ou azul) liso, sem dobras e bem iluminado.</p></div></details>
+      <details><summary>A estabilização e a redução de ruído resolvem tudo?</summary><div><p>Não. A estabilização melhora tremidos leves. A redução de ruído limpa chiado e ar-condicionado, mas obra, trânsito e música alta continuam aparecendo.</p></div></details>
+      <details><summary>Quanto espaço o editor ocupa?</summary><div><p>Cerca de 2 GB, numa pasta oculta chamada <code>.editor-reels</code> dentro da sua pasta de usuário. As músicas são baixadas aos poucos, só quando você pede.</p></div></details>
+      <details><summary>Deu um erro que eu não entendi.</summary><div><p>Peça ao Claude: "explica o erro em português simples e tenta resolver". Se não resolver, mande um print da conversa para a equipe NutriAcademy.</p></div></details>
+    </section>
+  </article>
+</div>
+
+<footer>
+  <div class="inner">
+    <img src="logo-nutriacademy.png" alt="NutriAcademy">
+    <span>Músicas e licenças: <a href="https://github.com/NutriAcademy/editordevideosclaude/tree/main/musicas" target="_blank" rel="noopener">biblioteca NutriAcademy (CC0)</a> · <a href="https://code.claude.com/docs/en/skills" target="_blank" rel="noopener">Documentação do Claude Code</a></span>
+  </div>
+</footer>
+
+<script>
+  // Botões "Copiar"
+  document.querySelectorAll('.copiar button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var texto = btn.parentElement.querySelector('p').innerText;
+      var pronto = function () {
+        btn.textContent = 'Copiado!'; btn.classList.add('ok');
+        setTimeout(function () { btn.textContent = 'Copiar'; btn.classList.remove('ok'); }, 1800);
+      };
+      var alternativo = function () {
+        var t = document.createElement('textarea'); t.value = texto; document.body.appendChild(t);
+        t.select(); try { document.execCommand('copy'); pronto(); } catch (e) {} t.remove();
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(texto).then(pronto, alternativo);
+      } else {
+        alternativo();
+      }
+    });
+  });
+
+  // Lista de conferência: marcar e lembrar
+  var itens = document.querySelectorAll('.checklist li');
+  itens.forEach(function (li, i) {
+    var chave = 'checklist-' + i;
+    try { if (localStorage.getItem(chave) === '1') li.classList.add('marcado'); } catch (e) {}
+    li.addEventListener('click', function () {
+      li.classList.toggle('marcado');
+      try { localStorage.setItem(chave, li.classList.contains('marcado') ? '1' : '0'); } catch (e) {}
+    });
+  });
+
+  // Índice: destaca a seção que está na tela
+  var links = {};
+  document.querySelectorAll('.indice a').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (e) {
+        if (e.isIntersecting && links[e.target.id]) {
+          Object.values(links).forEach(function (a) { a.classList.remove('ativo'); });
+          links[e.target.id].classList.add('ativo');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    document.querySelectorAll('article section').forEach(function (s) { obs.observe(s); });
+  }
+</script>
+</body>
+</html>
